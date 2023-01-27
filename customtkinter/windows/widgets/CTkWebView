@@ -1,0 +1,20 @@
+from cefpython3 import cefpython as cef
+
+class CTkWebView():
+    def __init__(self, parent,file,win_title):
+        self.browser = cef.CreateBrowserSync(url=file, window_title=win_title)
+        self.browser.SetClientHandler(LoadHandler())
+        self.browser.SetClientHandler(FocusHandler())
+        self.browser.SetClientHandler(KeyboardHandler())
+        self.browser.SetClientHandler(NavigationHandler())
+        self.browser.SetClientHandler(RequestHandler())
+        self.browser.SetClientHandler(LifeSpanHandler())
+        self.browser.SetClientHandler(LoadHandler())
+        self.browser.SetClientHandler(JavascriptBinding())
+        self.browser.SetClientHandler(DialogHandler())
+        self.browser.SetClientHandler(DownloadHandler())
+        self.browser.SetClientHandler(DragHandler())
+        self.browser.SetClientHandler(GeolocationHandler())
+        self.browser.SetClientHandler(V8ContextHandler())
+        self.browser.SetClientHandler(RenderHandler())
+
